@@ -1,10 +1,9 @@
-
 local wk = require("which-key")
 wk.add({
   { "<leader>f", group = "[F]iles" }, -- Group
   { "<leader>w", group = "[W]ords" }, -- Group
   { "<leader>g", group = "[G]it" }, -- Group
-  { "<leader>cd", group = "[C]hange [D]irectory" }, -- Group
+  { "<leader>p", group = "[P]rojects" } -- Group
 })
 
 -- Telescope Files
@@ -22,8 +21,9 @@ vim.keymap.set("n", "<leader>gs", builtin_telescope.git_status, { desc = "[G]it 
 -- Undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[U]ndo Tree" })
 -- Neotree
-vim.keymap.set("n", '<leader>d', '<Cmd>Neotree toggle<CR>', { desc = "[D]irecetory Toggle" })
+vim.keymap.set("n", '<leader>ft', '<Cmd>Neotree toggle<CR>', { desc = "[F]iles [T]ree" })
 -- Oil
+-- vim.opt.sessionoptions:append("globals") -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
 require("oil").setup({
   use_default_keymaps = false,
   keymaps = {
@@ -32,6 +32,8 @@ require("oil").setup({
     
     -- Enter to select (go into directory or open file)
     ["<CR>"] = "actions.select",
+
+    ["h"] = "actions.toggle_hidden",
     
     -- Leader+s to save changes
     ["<leader>s"] = {
@@ -50,4 +52,42 @@ require("oil").setup({
     },
   }
 })
-vim.keymap.set("n", "<leader>fc", "<CMD>Oil<CR>", { desc = "[F]iles [C]hange" })
+vim.keymap.set("n", "<leader>d", "<CMD>Oil<CR>", { desc = "[D]irectory" })
+-- Neovim Project
+local project = require("neovim-project")
+-- List projects
+vim.keymap.set("n", "<leader>pl", function()
+  project.open_project(nil, {
+    sort_by = "recent",
+    action = "find_files"
+  })
+end, { desc = "[P]rojects [L]ist" })
+-- Add project
+vim.keymap.set("n", "<leader>pa", function()
+  project.add_project_manually()
+end, { desc = "[P]rojects [A]dd" })
+-- Delete project
+vim.keymap.set("n", "<leader>pd", function()
+  project.delete_project()
+end, { desc = "[P]rojects [D]elete" })
+
+-- For grouping projects, you can use custom picker actions:
+-- vim.keymap.set("n", "<leader>pg", function()
+  -- -- Group projects by custom criteria
+  -- project.open_project(nil, {
+    -- -- You can modify the picker display to group projects
+    -- -- This requires customizing the telescope picker
+    -- attach_mappings = function(prompt_bufnr, map)
+      -- local actions = require("telescope.actions")
+      -- local action_state = require("telescope.actions.state")
+      -- 
+      -- -- Custom action for grouping logic
+      -- map("i", "<C-g>", function()
+        -- -- Implement your grouping logic here
+        -- print("Grouping projects...")
+      -- end)
+      -- 
+      -- return true
+    -- end,
+  -- })
+-- end, { desc = "[P]rojects [G]roups" })
