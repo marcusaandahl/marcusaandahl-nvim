@@ -3,6 +3,7 @@
 - [ ] Markdown/pdf support?
 - [ ] Git undo selected changes support
 - [ ] Git merge/rebase/cherry-pick support
+- [ ] Improve window management mappings (creation/movement/sizing)
 
 Files auto-save using auto commands (see `autocmds.lua`).
 
@@ -162,5 +163,7 @@ Once finished, press `Escape` to manifest the changes.
 * `Ctrl-W l` move to window on the right side.
 * `Ctrl-W k` move to window on the upper side.
 * `Ctrl-W j` move to window on the down side.
+* `Ctrl-w v` creates a vertical window
+* `Ctrlw- q` quits window
 
 This file will have things added to it as more useful motions are discovered.
