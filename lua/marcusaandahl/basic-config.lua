@@ -12,13 +12,10 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- Don't wrap text to next line if too long for editor
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- Incremental search
 vim.opt.incsearch = true
 
 -- Colors in GUI
 vim.opt.termguicolors = true
-
--- Treesitter
-require("marcusaandahl.treesitter-config")

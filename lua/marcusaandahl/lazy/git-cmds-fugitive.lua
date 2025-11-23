@@ -1,5 +1,5 @@
 return {
-  "mbbill/undotree",
+  "tpope/vim-fugitive",
   opts = {},
   config = function()
   end

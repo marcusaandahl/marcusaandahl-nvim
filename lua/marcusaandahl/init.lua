@@ -1,8 +1,7 @@
 vim.g.mapleader = " "
 
 require("marcusaandahl.lazy_init")
-require("marcusaandahl.set")
-require("marcusaandahl.keys")
-require("marcusaandahl.autocmds")
-require("marcusaandahl.colors")
-require("marcusaandahl.after")
+require("marcusaandahl.basic-config")
+require("marcusaandahl.colors-config")
+require("marcusaandahl.lsp-config")
+require("marcusaandahl.keys-config")

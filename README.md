@@ -1,9 +1,37 @@
 # marcusaandahl-nvim
 ## TODO
-- [ ] Markdown/pdf support?
+- [ ] Fix grn renaming to also follow uses in other files in CWD
+- [ ] Add harpoon-like C-n/C-N with visuals
+- [ ] Surround-like intellij (v word and press parenthesis)
+- [ ] Remove autopair in favor of intellij like autopair (better deletion at least)
+- [ ] Overseer task management
+- [ ] IPYNB support
+- [ ] Telescope extensions
+- [ ] Debugger
+- [ ] Tester???
+- [ ] Improve window management mappings (creation/movement/sizing)
+- [ ] Improve code-actions-completion keymappings
+- [ ] Git-signs better keymaps
 - [ ] Git undo selected changes support
 - [ ] Git merge/rebase/cherry-pick support
-- [ ] Improve window management mappings (creation/movement/sizing)
+- [ ] Clean unused keymappings
+- [ ] Fix word search keymappings
+- [ ] Improve error diagnostics key mappings
+- [ ] Fix snippets not always working + overload
+- [ ] Improve neovim status bar
+- [ ] Improve terminal for neovim
+- [ ] Setup startup page to go to projects
+- [ ] Prevent automatic telescope opening when changing projects
+- [ ] Buffer better keymappings/management
+
+### Optional
+- [ ] Markdown/pdf preview support
+- [ ] nvim-search-and-replace ??? 
+
+### Potential
+- [ ] Fine-tune keymappings (fx oil, refactor)
+- [ ] Create own snippets
+- [ ] Improve open project management splash screen
 
 Files auto-save using auto commands (see `autocmds.lua`).
 
@@ -165,5 +193,15 @@ Once finished, press `Escape` to manifest the changes.
 * `Ctrl-W j` move to window on the down side.
 * `Ctrl-w v` creates a vertical window
 * `Ctrlw- q` quits window
+
+LSP-specific can be found at [https://vonheikemen.github.io/learn-nvim/feature/lsp-setup.html]
+* `K` applies hover => used to get documentation - requires LSP
+* `gc` in visual mode toggles comments
+* `grn` renames references (intellij refactor) - sloppy across files
+* `gra` shows code actions if error is shown
+* `grr` shows in a new tab references of the given reference
+* `gri` shows code implementations???
+* `gO` shows all symbols in current buffer
+* `Ctrl-s` in insert mode shows function signature for current function
 
 This file will have things added to it as more useful motions are discovered.
