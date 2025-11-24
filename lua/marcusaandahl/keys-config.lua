@@ -22,7 +22,7 @@ wk.add({
     {
       mode = "n",
       "<leader>ft",
-      "<Cmd>Neotree toggle<CR>",
+      "<CMD>Neotree toggle<CR>",
       desc = "[F]ile [T]ree",
     },
     {
@@ -47,6 +47,37 @@ wk.add({
     },
   },
 
+  -- Tabs/Terminal
+  {
+    "<leader>t",
+    group = "[T]abs/[T]erminal",
+    {
+      {
+        mode = "n",
+        "<leader>tn",
+        "<CMD>tabnew<CR>",
+        desc = "[T]abs [N]ew"
+      },
+      {
+        mode = "n",
+        "<S-H>",
+        "<CMD>tabprevious<CR>",
+      },
+
+      {
+        mode = "n",
+        "<S-L>",
+        "<CMD>tabnext<CR>",
+      },
+      {
+        mode = "n",
+        "<leader>tc",
+        "<CMD>tabclose<CR>",
+        desc = "[T]abs [C]lose"
+      },
+    }
+  },
+
   -- Projects
   {
     "<leader>p",
@@ -66,6 +97,7 @@ wk.add({
     mode = "n",
     "<leader>d",
     -- TODO: Open Oil AND toggle actions.preview
+    -- TODO: Shift-Enter opens in new tab
     "<CMD>Oil<CR>",
     desc = "[D]irectory",
   },
@@ -105,16 +137,6 @@ wk.add({
         desc = "[R]un [S]ave"
       }
     }
-  },
-
-  -- Terminal (WIP)
-  {
-    mode = "n",
-    "<leader>t",
-    function()
-      print("WIP")
-    end,
-    desc = "[T]erminal"
   },
 
   -- Words
@@ -222,7 +244,7 @@ wk.add({
     {
       mode = "n",
       "<leader>cc",
-      "<cmd>ClaudeCode<CR>",
+      "<CMD>ClaudeCode<CR>",
       desc = "[C]ode [C]laude"
     },
     {

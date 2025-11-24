@@ -23,6 +23,24 @@ return {
 				["h"] = { "actions.toggle_hidden", mode = "n" },
 				["<BS>"] = { "actions.parent", mode = "n" },
 				["<CR>"] = "actions.select",
+				["<S-CR>"] = {
+					callback = function()
+						local oil = require("oil")
+						local cursor_entry = oil.get_cursor_entry()
+						if cursor_entry == nil then
+							return
+						end
+						local full_path = oil.get_current_dir() .. cursor_entry.name
+						if cursor_entry.type == "file" then
+							vim.cmd("tabnew " .. full_path)
+						elseif cursor_entry.type == "directory" then
+							vim.cmd("tabnew")
+							oil.open(full_path)
+						end
+					end,
+					desc = "Open in new tab",
+					mode = "n",
+				},
 				["<leader>s"] = {
 					callback = function()
 						require("oil").save({ confirm = true }, nil)
