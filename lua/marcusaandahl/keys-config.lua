@@ -97,8 +97,15 @@ wk.add({
     mode = "n",
     "<leader>d",
     -- TODO: Open Oil AND toggle actions.preview
-    -- TODO: Shift-Enter opens in new tab
-    "<CMD>Oil<CR>",
+    -- "<CMD>Oil<CR>",
+    function()
+      require("oil").open(nil, {
+        preview = {
+          vertical = true,
+          split = "botright"
+        }
+      }, nil)
+    end,
     desc = "[D]irectory",
   },
 
@@ -155,7 +162,7 @@ wk.add({
       builtin_telescope.grep_string,
       desc = "[W]ord [L]ive search",
     },
-},
+  },
 
   -- Hop
   {

@@ -8,3 +8,4 @@ vim.lsp.enable('markdown_oxide') -- brew install markdown-oxide
 vim.lsp.enable('metals') -- brew install coursier/formulas/coursier | cs setup | cs install metals
 vim.lsp.enable('jdtls') -- brew install jdtls
 vim.lsp.enable('bashls') -- npm i -g bash-language-server
+vim.lsp.enable('csharp_ls') -- dotnet tool install --global csharp-ls
